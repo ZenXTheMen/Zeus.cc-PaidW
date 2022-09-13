@@ -1,0 +1,60 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Player = game.Players.LocalPlayer
+local Window = OrionLib:MakeWindow({Name = "Zeus.cc Key system", HidePremium = true, SaveConfig = false, IntroText = "Zeus Key System | bro thinks he can get it for free fr(only for stealers)", ConfigFolder = "lol thinking u can get into it for free", IntroEnabled = false})
+
+OrionLib:MakeNotification({
+    Name = "Zeus.gay",
+    Content = "Logged in as"..Player.Name..".",
+    Image = "rbxassetid://4483345998",
+    Time = 3
+})
+
+_G.Key = "CheeseBurgerW" -- put ur key here example: "zen is gay"
+_G.KeyInput = "string"
+
+function MakeScriptHub()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ZenXTheMen/Zeus.cc/main/Paid-Rewrite"))()
+end
+
+function IncorrectKey()
+    OrionLib:MakeNotification({
+        Name = "Zeus.gay",
+        Content = "Incorrect Key!",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
+
+function CorrectKey()
+    OrionLib:MakeNotification({
+        Name = "Zeus.gay",
+        Content = "Correct Key!",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
+
+local Tab = Window:MakeTab({
+    Name = "key",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+Tab:AddTextbox({
+    Name = "Input Key",
+    Default = "1234",
+    TextDisappear = true,
+    Callback = function(Value)
+        _G.KeyInput = Value
+    end      
+})
+Tab:AddButton({
+    Name = "Enter Key",
+    Callback = function()
+              if _G.KeyInput == _G.Key then
+                MakeScriptHub()
+                CorrectKey()
+            else
+                IncorrectKey()
+            end
+      end    
+})
